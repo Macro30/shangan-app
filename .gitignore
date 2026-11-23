@@ -8,7 +8,7 @@ node_modules/
 dist/
 web-build/
 expo-env.d.ts
-uniwind-types.d.ts
+# uniwind-types.d.ts 已随仓库提交，便于 clone 后直接 tsc
 
 # native builds
 android/

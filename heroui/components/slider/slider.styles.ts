@@ -81,5 +81,7 @@ export const styleSheet = StyleSheet.create({
 
 export type ThumbSlots = keyof ReturnType<typeof thumb>;
 
+export type OutputSlots = Extract<keyof ReturnType<typeof output>, string>;
+
 export { sliderClassNames };
 export default sliderClassNames;

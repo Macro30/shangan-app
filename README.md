@@ -136,11 +136,20 @@ eas build -p android --profile preview
 
 ## 关于本仓库
 
-本仓库内容来自 Coze Coding 项目 `上岸`（project id `7707135677841834024`）的完整源码还原：
+本仓库内容来自 Coze Coding 项目 `上岸`（project id `7707135677841834024`）的源码还原：
 
-- **完整还原**：`app/`、`screens/`、`components/`、`contexts/`、`utils/`、`hooks/`、`heroui/`、`types.ts`、`global.css` 共 358 个文件，均为原始内容
-- **占位 / 补充**：`heroui/styles.css`（CSS 不进入 source map，此处为最小占位，见文件内注释）、`assets/images/*`（原图无法提取，按「上岸」品牌重绘的占位图标）、`README.md`、`.gitignore`
-- **未包含**：原项目模板中的 `server/` 空壳、`patches/`、`.cozeproj/scripts` 等 Coze 平台构建辅助文件（本仓库已改为标准 Expo 工程结构，不依赖它们）
+- **原始还原**：`app/`、`screens/`、`components/`、`contexts/`、`utils/`、`hooks/`、`types.ts`、`global.css` 均为项目原始内容
+- **heroui 组件库**：项目内置（vendored）的 hero-ui 组件。纯类型文件（`*.types.ts`）与 CSS 不会进入打包产物，还原时按同版本官方包 `heroui-native@1.0.1` 补齐，并做了 4 处小修补使其类型自洽（`slider` 补 `OutputSlots`、`input`/`input-otp` 补 `isBottomSheetAware`、`bottom-sheet` 的 `enablePanDownToClose` 改为可选）
+- **占位图**：`assets/images/*` 原图无法提取，按「上岸」品牌重绘（深空军蓝底 + 金色「岸」字 + 水波）
+- **未包含**：原模板中的 `server/` 空壳、`patches/`、`.cozeproj/scripts` 等 Coze 平台构建辅助文件；本仓库已改为标准 Expo 工程结构，不依赖它们
+
+### 已验证
+
+```bash
+npm install          # 862 packages
+npx tsc --noEmit     # 0 error（含 heroui 全量类型检查）
+npx expo export -p android   # Android 包体构建成功（Hermes 6.27 MB）
+```
 
 ---
 
