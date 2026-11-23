@@ -1,0 +1,74 @@
+/*
+ * heroui/styles
+ * ---------------------------------------------------------------------------
+ * 说明（重要）：本文件在源码还原时缺失（CSS 不会进入 Metro 的 source map）。
+ * 这里是最小占位实现：主题色板、圆角、阴影等全部 token 都定义在根目录
+ * global.css 的 @theme / @layer theme 中，组件样式依赖那些 token，因此
+ * 应用可以正常构建和运行；只有少数组件级动画需要下面的 keyframes。
+ *
+ * 如果你有 hero-ui / heroui-native 官方包，请用官方 styles 内容替换本文件，
+ * 可获得 100% 一致的动效表现。
+ * ---------------------------------------------------------------------------
+ */
+
+@keyframes heroui-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroui-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes heroui-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroui-zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes heroui-slide-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes heroui-slide-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
